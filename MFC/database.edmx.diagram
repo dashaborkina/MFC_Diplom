@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7081cb9acc1948478af2c385872b67b4" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="mfc_databaseModel.Clients" Width="1.5" PointX="4.75" PointY="1.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Comp_strah" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Employ" Width="1.5" PointX="6.5" PointY="2.875" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Family" Width="1.5" PointX="2.75" PointY="4.625" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Med_spravka" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Poshlina" Width="1.5" PointX="2.75" PointY="1.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Role" Width="1.5" PointX="6.5" PointY="1.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Status" Width="1.5" PointX="2.75" PointY="2.875" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Svidet" Width="1.5" PointX="2.75" PointY="6.375" />
+        <EntityTypeShape EntityType="mfc_databaseModel.sysdiagrams" Width="1.5" PointX="6.625" PointY="6.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Udost_lich" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Usluga" Width="1.5" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="mfc_databaseModel.Client_usl" Width="1.5" PointX="8.375" PointY="1.125" />
+        <EntityTypeShape EntityType="mfc_databaseModel.SearchAddView" Width="1.5" PointX="8.375" PointY="4.125" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Comp_strah" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Family" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Med_spravka" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Poshlina" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Status" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Svidet" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Udost_lich" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Clients_Usluga" />
+        <AssociationConnector Association="mfc_databaseModel.FK_Employ_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

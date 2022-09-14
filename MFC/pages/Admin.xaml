@@ -1,0 +1,290 @@
+﻿<Window x:Class="MFC.pages.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MFC.pages"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="МФЦ" Height="800" Width="1000"
+        Icon="/source/mfc_logo.ico" 
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_Back"
+                Click="btn_Back_Click">
+            <TextBlock Text ="⬅"
+                       ToolTip="Выйти из учетной записи"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Height="55"
+                       FontSize="40"/>
+        </Button>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="6"  
+                    Background="DarkViolet" Orientation="Horizontal">
+            <Label Content="Администратор"
+                   FontSize="20"
+                   Foreground="White"/>
+            <Button x:Name="btn_addEmp"
+                    Content="Добавить нового работника"
+                    Width="265"
+                    Margin="498 0 0 0"
+                    Click="btn_addEmp_Click"
+                    HorizontalAlignment="Right"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Background="LightGray"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" 
+                    Grid.ColumnSpan="2"
+                    Margin="0 10 20 0" Orientation="Horizontal">
+            <StackPanel Width="200" Margin="0 0 20 0">
+                <Label Content="Фамилия"
+                       Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_Familia"
+            	         md:HintAssist.Hint="Фамилия"/>
+                <Label Content="Имя" 
+                       Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="txb_Name"
+                         md:HintAssist.Hint="Имя"/>
+                <Label Content="Отчество"
+                       Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_Otchestvo"
+            	         md:HintAssist.Hint="Отчество"/>
+            </StackPanel>
+            <StackPanel Width="200">
+                <Label Content="Дата рождения"
+                       Style="{StaticResource averageLabel}"/>
+                <DatePicker Name="dtp_Birth"/>
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Margin="0 31 0 0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btn_search" 
+                            Content="🔍"
+                            Click="btn_search_Click"
+                            VerticalContentAlignment="Center"
+                            Height="40" Width="40" ToolTip="Поиск"/>
+                    <Button x:Name="btn_clear" 
+                            Content="❌"
+                            Click="btn_clear_Click"
+                            VerticalContentAlignment="Center"
+                            Height="40" Width="40"
+                            Margin="10 0 0 0" ToolTip="Очистить параметры поиска"/>                    
+                    <Button x:Name="btn_delete"
+                            Content="🗑"
+                            Click="btn_delete_Click"
+                            VerticalContentAlignment="Center"
+                            Height="40" Width="40"
+                            Margin="10 0 0 0" ToolTip="Удалить запись клиента как ошибку"/>
+                    </StackPanel>
+                    <StackPanel Margin="0 10 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btn_change" 
+                            Content="✏"
+                            Click="btn_change_Click"
+                            VerticalContentAlignment="Center"
+                            Height="40" Width="40"
+                            Margin="10 0 0 0" ToolTip="Изменить данные записи клиента"/>
+                    <Button x:Name="btn_save"
+                            Content="💾"
+                            Click="btn_save_Click"
+                            VerticalContentAlignment="Center"
+                            Height="40" Width="40"
+                            Margin="10 0 0 0" ToolTip="Сохранить изменения данных"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Label Content="Фильтрция и Сортировка"
+               Grid.Row="1" Grid.Column="2"
+               VerticalAlignment="Top"
+               Margin="30 7 0 0"
+               Style="{StaticResource averageLabel}"/>
+        <Border Grid.Column="2" Grid.Row="1" 
+                BorderBrush="Transparent" 
+                BorderThickness="2" CornerRadius="10" 
+                Margin="20 38 0 16"
+                Background="#EDEDED">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Услуга:"
+                           FontSize="16"/>
+                    <ComboBox x:Name="cbx_Usluga"
+                              Margin="20 0 0 0"
+                              DisplayMemberPath="usl_title"
+                              FontSize="14"
+                              Width="280"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 10 0 0">
+                    <Label Content="Статус:"
+                           FontSize="16"/>
+                    <ComboBox x:Name="cbx_Status"
+                              DisplayMemberPath="stat_title"
+                              Margin="21 0 0 0"
+                              FontSize="14"
+                              Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 10 0 0">
+                    <Label Content="Вывод:"
+                           FontSize="16"/>
+                    <ComboBox x:Name="cbx_OrderBy"
+                              Margin="20 0 0 0"
+                              FontSize="14"
+                              Width="200">
+                        <Label Content="По алфавиту"/>
+                        <Label Content="В обратном порядке"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <ScrollViewer x:Name="scr_clientData" Grid.Row="2" Grid.Column="2" IsEnabled="True"
+                      Margin="20 5 0 0">
+            <StackPanel Name="stp_clientData"  
+                        Width="320"
+                        Orientation="Vertical" IsEnabled="False">
+                <Label Content="Номер клиента в базе данных"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbl_id"
+                         BorderBrush="Transparent"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="10 0 0 0"
+                           Text="{Binding ElementName=lv_clientSearch , Path=SelectedItem.id_client, Delay=20}"
+                           IsEnabled="False"/>
+                <Label Content="Фамилия"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_Familia1"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.familia}"
+            	            md:HintAssist.Hint="Фамилия"/>
+                <Label Content="Имя"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="txb_Name1"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.name}"
+                            md:HintAssist.Hint="Имя"/>
+                <Label Content="Отчество"
+                       Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_Otchestvo1"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.otchestvo}"
+            	            md:HintAssist.Hint="Отчество"/>
+                <Label Content="Дата рождения"
+                        Style="{StaticResource averageLabel}"/>
+                <DatePicker Name="dtp_Birth1"
+                            SelectedDate="{Binding ElementName=lv_clientSearch, Path=SelectedItem.date_birth}"/>
+                <Label Content="Удостоверение личности"
+                        Style="{StaticResource averageLabel}"/>
+                <ComboBox x:Name="cbx_nomerUdost1"
+                          FontSize="14"
+                          DisplayMemberPath="udost_title"
+                          SelectedItem="{Binding ElementName=lv_clientSearch, Path=SelectedItem.Udost_lich}" />
+                <Label Content="Номер удостоверения личности"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_nomerUdost1"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.nomer_udost}"/>
+                <Label Content="Адрес регистации"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_addressReg"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.address_reg}"/>
+                <Label Content="Снилс"
+                        Style="{StaticResource averageLabel}"/>
+                <TextBox x:Name="tbx_snils"
+                         Text="{Binding ElementName=lv_clientSearch, Path=SelectedItem.snils}"/>
+                <Label Content="Семейное положение"
+                        Style="{StaticResource averageLabel}"/>
+                <ComboBox x:Name="cbx_family"
+                          FontSize="14"
+                          DisplayMemberPath="fam_title"
+                          SelectedItem="{Binding ElementName=lv_clientSearch, Path=SelectedItem.Family}"                          />
+            </StackPanel>
+        </ScrollViewer>
+
+
+        <ListView x:Name="lv_clientSearch" Grid.Row="2" Grid.Column="1"
+                  Width="420" HorizontalAlignment="Left"
+                  Margin="0 10 0 0"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                  SelectionChanged="lv_clientSearch_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Transparent"
+                            CornerRadius="4" 
+                            Width="375"
+                            Margin="5"
+                            VerticalAlignment="Center"
+                            Background="#ededed">
+                        <StackPanel VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding familia}"
+                                        Style="{StaticResource labelForLV}"/>
+                                <Label Content="{Binding name}"
+                                        Style="{StaticResource labelForLV}"/>
+                                <Label Content="{Binding otchestvo}"
+                                        Style="{StaticResource labelForLV}"/>
+                                <TextBlock Text="{Binding date_birth, StringFormat={}{0:dd.MM.yyyy} }"                                       
+                                        Style="{StaticResource labelForTB}"/>
+                                <Label Name="lb_id_client" 
+                                       Style="{StaticResource labelForLV}"
+                                       Content="{Binding id_client}"
+                                       Visibility="Hidden"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+
+                                <Label Content="Номер удостоверения личности:"
+                                        Style="{StaticResource labelForLV}"/>
+                                <Label Content="{Binding nomer_udost}"
+                                        Style="{StaticResource labelForLV}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Услуга:"
+                                       Style="{StaticResource labelForLV}"/>
+                                <Label Content="{Binding Usluga.usl_title}"
+                                        Style="{StaticResource labelForLV}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Статус:"
+                                       Style="{StaticResource labelForLV}"/>
+                                <Label Content="{Binding Status.stat_title}"
+                                        Style="{StaticResource labelForLV}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1" Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="20">
+            <Button x:Name="btn_print"
+                    Width="150"
+                    Content="Печать отчётов"
+                    Click="btn_print_Click"/>            
+        </StackPanel>
+        
+        <Frame x:Name="frm_Admin"
+               Grid.RowSpan="4"
+               NavigationUIVisibility="Hidden"
+               Grid.ColumnSpan="4"/>
+        
+    </Grid>
+    
+</Window>

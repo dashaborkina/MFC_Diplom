@@ -1,0 +1,102 @@
+﻿<Window x:Class="MFC.pages.Print"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MFC.pages"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        IsVisibleChanged="Window_IsVisibleChanged"
+        FocusableChanged="Window_FocusableChanged"
+        LostFocus="Window_LostFocus"
+        Title="Print" Height="350" Width="500">
+    <Grid>
+        <Border Background="White"
+                CornerRadius="50"
+                BorderThickness="3"
+                BorderBrush="DarkViolet">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1" Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Label Content="Выберите параметры вывода на печать"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 20"
+                           FontSize="20"/>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Label Content="Услуга"
+                               Style="{StaticResource averageLabel}"/>
+                        <ComboBox Name="cbx_usl"
+                                  FontSize="14"
+                                  Width="250"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                 HorizontalAlignment="Center"
+                                Margin="0 10">
+                        <Label Content="Статус"
+                               Style="{StaticResource averageLabel}"/>
+                        <ComboBox Name="cbx_stat"
+                                  FontSize="14"
+                                  Width="250"
+                                  Margin="2 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                 HorizontalAlignment="Center">
+                        <Label Content="Среда"
+                               Style="{StaticResource averageLabel}"/>
+                        <ComboBox Name="cbx_sr"
+                                  
+                                  Width="250"
+                                  Margin="3 0 0 0">
+                            <Label Content="Microsoft Office Word"
+                                   Style="{StaticResource averageLabel}"/>
+                            <Label Content="Microsoft Office Excel"
+                                   Style="{StaticResource averageLabel}"/>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Center">
+                <Button x:Name="btn_close"
+                        Content="Отмена"
+                        Width="100"
+                        Margin="10 5"
+                        Click="btn_close_Click"/>
+                <Button x:Name="btn_clear"
+                        Content="Очистить"
+                        ToolTip="Очистка параметров вывода"
+                        Width="100"
+                        Margin="10 5"
+                        Click="btn_clear_Click"/>
+                <Button x:Name="btn_submit"
+                        Content="Подтвердить"
+                        Width="130"
+                        Margin="10 5"
+                        Click="btn_submit_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
